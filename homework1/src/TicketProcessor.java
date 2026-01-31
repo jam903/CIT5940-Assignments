@@ -1,31 +1,45 @@
 package homework1.src;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class TicketProcessor {
     public static void main(String[] args) {
-        processTicketsLinkedList();
+        int runs = 10;
+        long totalTime = 0;
+        for (int i = 0; i < runs; i++) {
+            LinkedList<String> ticketQueue = new LinkedList<>();
+            createLongQueue(ticketQueue);
+            long start = System.nanoTime();
 
+            while (!ticketQueue.isEmpty()) {
+                ticketQueue.remove(0);
+            }
+            long end = System.nanoTime();
+            totalTime += (end - start);
+        }
+        System.out.println("LinkedList average time (ns): " + (totalTime / runs));
     }
+
 
     public static void processTicketsLinkedList() {
 
         LinkedList<String> ticketQueue = new LinkedList<>();
 
         // Uncomment the queue length you want to test with
-        // createShortQueue(ticketQueue);
-        // createLongQueue(ticketQueue);
+     createShortQueue(ticketQueue);
+     // createLongQueue(ticketQueue);
 
         
         while (!ticketQueue.isEmpty()) {
             // grab the first item in the list
             String currentTicket = ticketQueue.remove(0); 
             
-            System.out.println("Processing: " + currentTicket);
+            //System.out.println("Processing: " + currentTicket);
 
-            System.out.println("Finished! Remaining in line: " + ticketQueue.size());
-            System.out.println("---------------------------");
+           // System.out.println("Finished! Remaining in line: " + ticketQueue.size());
+            //System.out.println("---------------------------");
         }
     }
 
