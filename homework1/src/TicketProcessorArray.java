@@ -7,6 +7,7 @@ public class TicketProcessorArray {
         int runs = 10;
         long total = 0;
         for (int i = 0; i < runs; i++) {
+            //long start = System.nanoTime();
             ArrayList<String> ticketQueue = new ArrayList<>();
             createLongQueue(ticketQueue);
             long start = System.nanoTime();
@@ -24,8 +25,8 @@ public class TicketProcessorArray {
         ArrayList<String> ticketQueue = new ArrayList<>();
 
         // Uncomment the queue length you want to test with
-      createShortQueue(ticketQueue);
-   //createLongQueue(ticketQueue);
+      //createShortQueue(ticketQueue);
+   createLongQueue(ticketQueue);
 
 
         while (!ticketQueue.isEmpty()) {
